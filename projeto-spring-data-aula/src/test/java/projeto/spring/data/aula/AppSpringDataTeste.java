@@ -29,7 +29,7 @@ public class AppSpringDataTeste {
 		entity.setSenha("000");
 		entity.setNome("Ana Bittencurt");
 		
-		/*interfaceSpringDataUser.save(entity);*/
+		interfaceSpringDataUser.save(entity);
 	}
 
 	@Test
@@ -104,4 +104,9 @@ public class AppSpringDataTeste {
 				System.out.println("==============================================");			
 	}
 
+	@Test
+	public void testeDeletePorNome() {
+		interfaceSpringDataUser.deletePorNome("Ana Bittencurt");
+	}
+	
 }
