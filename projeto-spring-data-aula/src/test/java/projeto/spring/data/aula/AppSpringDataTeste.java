@@ -33,6 +33,7 @@ public class AppSpringDataTeste {
 
 	@Test
 	public void testeConsulta() {
+		
 		Optional<UsuarioSpringData> entity = interfaceSpringDataUser.findById(1L);
 		
 		System.out.println("Nome: " + entity.get().getNome()); 
@@ -45,6 +46,7 @@ public class AppSpringDataTeste {
 	
 	@Test
 	public void testeConsultaTodos() {
+		
 		Iterable<UsuarioSpringData> lista = interfaceSpringDataUser.findAll();
 		
 		for (UsuarioSpringData entity : lista) {
@@ -56,6 +58,17 @@ public class AppSpringDataTeste {
 			System.out.println("Id: " + entity.getId()); 
 			System.out.println("==============================================");
 		}
+	}
+	
+	@Test
+	public void testeUpdate() {
+		
+		Optional<UsuarioSpringData> entity = interfaceSpringDataUser.findById(3L);
+		
+		UsuarioSpringData data = entity.get();
+		data.setNome("Ana Julia Mesquita");
+		interfaceSpringDataUser.save(data);
+		
 	}
 	
 }
