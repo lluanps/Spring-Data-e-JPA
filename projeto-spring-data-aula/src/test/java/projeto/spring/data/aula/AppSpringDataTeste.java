@@ -67,8 +67,12 @@ public class AppSpringDataTeste {
 		
 		UsuarioSpringData data = entity.get();
 		data.setNome("Ana Julia Mesquita");
-		interfaceSpringDataUser.save(data);
-		
+		interfaceSpringDataUser.save(data);	
+	}
+	
+	@Test
+	public void testeDelete() {
+		interfaceSpringDataUser.deleteById(5L);	
 	}
 	
 }
