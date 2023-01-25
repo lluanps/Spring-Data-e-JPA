@@ -1,5 +1,6 @@
 package projeto.spring.data.aula;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -28,7 +29,7 @@ public class AppSpringDataTeste {
 		entity.setSenha("000");
 		entity.setNome("Ana Bittencurt");
 		
-		interfaceSpringDataUser.save(entity);
+		/*interfaceSpringDataUser.save(entity);*/
 	}
 
 	@Test
@@ -73,6 +74,21 @@ public class AppSpringDataTeste {
 	@Test
 	public void testeDelete() {
 		interfaceSpringDataUser.deleteById(5L);	
+	}
+	
+	@Test
+	public void testeConsultaNome() {
+		List<UsuarioSpringData> list = interfaceSpringDataUser.buscaPorNome("Luan Pinheiro da Silva");
+			
+			for (UsuarioSpringData entity : list) {
+				System.out.println("Nome: " + entity.getNome()); 
+				System.out.println("Idade: " + entity.getIdade());
+				System.out.println("Email: " + entity.getEmail()); 
+				System.out.println("Login: " + entity.getLogin()); 
+				System.out.println("Senha: " + entity.getSenha()); 
+				System.out.println("Id: " + entity.getId()); 
+				System.out.println("==============================================");
+			}
 	}
 	
 }
