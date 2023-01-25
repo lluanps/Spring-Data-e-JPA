@@ -1,5 +1,7 @@
 package projeto.spring.data.aula;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +33,29 @@ public class AppSpringDataTeste {
 
 	@Test
 	public void testeConsulta() {
-		System.out.println("Iniciou spring com sucesso");
+		Optional<UsuarioSpringData> entity = interfaceSpringDataUser.findById(1L);
+		
+		System.out.println("Nome: " + entity.get().getNome()); 
+		System.out.println("Idade: " + entity.get().getIdade());
+		System.out.println("Email: " + entity.get().getEmail()); 
+		System.out.println("Login: " + entity.get().getLogin()); 
+		System.out.println("Senha: " + entity.get().getSenha()); 
+		System.out.println("Id: " + entity.get().getId()); 
 	}
 	
+	@Test
+	public void testeConsultaTodos() {
+		Iterable<UsuarioSpringData> lista = interfaceSpringDataUser.findAll();
+		
+		for (UsuarioSpringData entity : lista) {
+			System.out.println("Nome: " + entity.getNome()); 
+			System.out.println("Idade: " + entity.getIdade());
+			System.out.println("Email: " + entity.getEmail()); 
+			System.out.println("Login: " + entity.getLogin()); 
+			System.out.println("Senha: " + entity.getSenha()); 
+			System.out.println("Id: " + entity.getId()); 
+			System.out.println("==============================================");
+		}
+	}
 	
 }
