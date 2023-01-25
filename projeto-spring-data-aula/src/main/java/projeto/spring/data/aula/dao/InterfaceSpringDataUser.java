@@ -32,4 +32,8 @@ public interface InterfaceSpringDataUser extends JpaRepository<UsuarioSpringData
 	@Query("DELETE FROM UsuarioSpringData u WHERE u.nome = ?1")
 	public void deletePorNome(String nome);
 	
+	@Modifying
+	@Transactional
+	@Query("UPDATE UsuarioSpringData u SET u.email = ?1 WHERE u.nome = ?2") 
+	public void updateEmailPorNome(String email, String nome);
 }
